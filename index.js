@@ -5,7 +5,7 @@ const express = require("express")
 const connectBOOTS_BUY_BACKENed=require("./config/boots_buy_backened")
 const userRoutes = require("./routes/userRoutes")
 const adminUserRoutes = require("./routes/admin/userRouteAdmin")
-const adminCategoryRoutes = require("./routes/admin/categoryRouteAdmin")
+const adminBrandRoutes = require("./routes/admin/brandRouteAdmin")
 
 const adminProductRoutes = require("./routes/admin/productRouteAdmin")
 const path = require("path") // 
@@ -27,7 +27,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 connectBOOTS_BUY_BACKENED()
 app.use("/api/auth", userRoutes)
 app.use("/api/admin/users", adminUserRoutes)
-app.use("/api/admin/category", adminCategoryRoutes)
+app.use("/api/admin/brand", adminBrandRoutes)
 
 app.use("/api/admin/product", adminProductRoutes)
 
