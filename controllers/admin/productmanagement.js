@@ -1,9 +1,11 @@
 const Product = require("../../models/Product")
 
 exports.createProduct = async (req, res) => {
-    const { name, price, categoryId, userId } = req.body
+     console.log("req.body:", req.body);
+    console.log("req.file:", req.file);
+    const {name, price, brandId} = req.body
     // validataion
-    if (!name || !price || !categoryId || !userId) {
+    if (!name || !price || !brandId ) {
         return res.status(403).json(
             { success: false, message: "Missing field" }
         )
@@ -13,7 +15,8 @@ exports.createProduct = async (req, res) => {
             {
                 name,
                 price,
-                categoryId,
+                brandId,
+                 filepath:req.file?req.file.path: null
             
             }
         )
@@ -54,7 +57,7 @@ exports.getProducts = async (req, res) => {
         const skips = (page - 1) * limit
 
         const products = await Product.find(filter)
-            .populate("categoryId", "name")
+            .populate("brandId", "name")
             .skip(skips)
             .limit(Number(limit))
         const total = await Product.countDocuments(filter)

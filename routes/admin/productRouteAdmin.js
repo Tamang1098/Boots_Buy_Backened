@@ -1,14 +1,11 @@
 const express = require("express")
 const router = express.Router()
 const productController = require("../../controllers/admin/productmanagement")
-// can be imported as singular
-// perviously
-// const {createProduct} = require("../../controllers/admin/productmanagement")
-// per function
-
+const upload = require("../../middlewares/fileupload")
 router.post(
     "/",
-    productController.createProduct // using dot, get function
+    upload.single("image"),
+    productController.createProduct 
 )
 router.get(
     "/",

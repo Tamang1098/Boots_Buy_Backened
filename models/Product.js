@@ -6,22 +6,21 @@ const productSchema = new mongoose.Schema(
             type:String,
             required:true
         },
+        filepath:{type:String},
         price:{
             type:Number,
             required:true
         },
-        categoryId:{
+        brandId:{
             type:  mongoose.Schema.ObjectId, // foreign key/referencing
-            ref:'Category',
+            ref:'Brand',
             required:true
         },
-        sellerId:{
-            type:mongoose.Schema.ObjectId, // foreign key/referencing
-            ref:'User',
-            required:true
-        }, 
-
-        productImage: {type: String}
+        // sellerId:{
+        //     type:mongoose.Schema.ObjectId, // foreign key/referencing
+        //     ref:'User',
+        //     required:true
+        // }, 
     }
 )
 
