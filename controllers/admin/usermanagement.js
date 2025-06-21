@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt")
 // 5 common api
 // Create, Read All, Read One, Update One, Delete One
 exports.createUser = async (req, res) => {
-    const { username, email, firstName, lastName, password } = req.body
+    const { username, email, password } = req.body
     // validation
     if (!username || !email || !password) {
         return res.status(400).json(
@@ -37,8 +37,6 @@ exports.createUser = async (req, res) => {
         const newUser = new User({
             username,
             email,
-            firstName,
-            lastName,
             password: hasedPas
         })
         await newUser.save()
@@ -98,7 +96,7 @@ exports.getOneUser = async (req, res) => {
 
 // 4 Update one
 exports.updateOne = async (req, res) => {
-    const { firstName, lastName } = req.body
+    const { email, password } = req.body
     const _id = req.params.id // mongodb id
     try{
         const user = await User.updateOne(
@@ -107,8 +105,8 @@ exports.updateOne = async (req, res) => {
             },
             {
                 $set : {
-                    "firstName": firstName,
-                    "lastName": lastName
+                    "email": email,
+                    "password": password
                 }
             }
         )

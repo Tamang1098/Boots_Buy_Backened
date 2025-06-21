@@ -4,7 +4,7 @@ const { createUser,
     getUsers, getOneUser, updateOne, deleteOne
 } = require("../../controllers/admin/usermanagement")
 const { authenticateUser, isAdmin} = require("../../middlewares/authorizedUser")
-
+router.get("/users", authenticateUser, isAdmin, getUsers);
 // 5 common api route
 router.post(
     "/",
