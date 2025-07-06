@@ -1,4 +1,5 @@
-require("dotenv").config() 
+require("dotenv").config();
+
 
 const express = require("express")
 // 2 new import
@@ -6,8 +7,13 @@ const connectBOOTS_BUY_BACKENed=require("./config/boots_buy_backened")
 const userRoutes = require("./routes/userRoutes")
 const adminUserRoutes = require("./routes/admin/userRouteAdmin")
 const adminBrandRoutes = require("./routes/admin/brandRouteAdmin")
-
 const adminProductRoutes = require("./routes/admin/productRouteAdmin")
+
+
+
+
+
+
 const path = require("path") // 
 const cors = require("cors")
 const connectBOOTS_BUY_BACKENED = require("./config/boots_buy_backened")
@@ -29,6 +35,8 @@ app.use("/api/auth", userRoutes)
 app.use("/api/admin/users", adminUserRoutes)
 app.use("/api/admin/brand", adminBrandRoutes)
 app.use("/api/admin/product", adminProductRoutes)
+
+
 const PORT = process.env.PORT
 app.listen(
     PORT,

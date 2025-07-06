@@ -17,6 +17,13 @@ const UserSchema = new mongoose.Schema(
             required:true
 
         },
+        address:{
+            type:String // optional
+        },
+        mobilenumber:{
+            type:String
+
+        },
         role:{
             type:String,
             default:"normal"
@@ -24,7 +31,7 @@ const UserSchema = new mongoose.Schema(
         
     },
     {
-        timestrap:true
+        timestamps:true
     }
 )
 module.exports=mongoose.model(

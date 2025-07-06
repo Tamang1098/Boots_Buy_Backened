@@ -1,22 +1,24 @@
 const express = require("express")
 const router = express.Router()
 const { createUser, 
-    getUsers, getOneUser, updateOne, deleteOne
+    getUsers, getOneUser, updateOneUser,deleteOneUser
 } = require("../../controllers/admin/usermanagement")
 const { authenticateUser, isAdmin} = require("../../middlewares/authorizedUser")
 router.get("/users", authenticateUser, isAdmin, getUsers);
 // 5 common api route
-router.post(
-    "/",
-    createUser
-)
 
 router.get(
     "/",
-    authenticateUser, // next() goes to next getUser
-    isAdmin,
+    // authenticateUser, 
+    // isAdmin,
     getUsers
 )
+router.post(
+    "/create",
+    createUser
+)
+
+
 
 router.get(
     "/:id", // req.params.id
@@ -24,10 +26,10 @@ router.get(
 )
 router.put(
     "/:id", // req.params.id
-    updateOne
+    updateOneUser
 )
 router.delete(
     "/:id", // req.params.id
-    deleteOne
+    deleteOneUser
 )
 module.exports = router

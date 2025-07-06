@@ -1,5 +1,5 @@
 const mongoose =require("mongoose")
-const CONNECTION_STRING=process.env.MONGODB_URL
+const CONNECTION_STRING=process.env.MONGODB_URI 
  
 const connectBOOTS_BUY_BACKENED=async() =>{
     try{
@@ -10,6 +10,7 @@ const connectBOOTS_BUY_BACKENED=async() =>{
                 useUnifiedTopology:true
             }
         )
+        console.log("Mongodb Connected")
     }catch (err){
         console.log("BOOTS_BUY_BACKENED Err",err)
     }

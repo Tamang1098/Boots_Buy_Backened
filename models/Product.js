@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema(
             type:  mongoose.Schema.ObjectId, // foreign key/referencing
             ref:'Brand',
             required:true
-        },
+        }
         // sellerId:{
         //     type:mongoose.Schema.ObjectId, // foreign key/referencing
         //     ref:'User',
