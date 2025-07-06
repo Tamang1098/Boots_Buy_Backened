@@ -37,10 +37,4 @@ app.use("/api/admin/brand", adminBrandRoutes)
 app.use("/api/admin/product", adminProductRoutes)
 
 
-const PORT = process.env.PORT
-app.listen(
-    PORT,
-    () => {
-        console.log("Server running")
-    }
-)
+module.exports=app
