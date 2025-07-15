@@ -9,8 +9,8 @@ router.get("/users", authenticateUser, isAdmin, getUsers);
 
 router.get(
     "/",
-    // authenticateUser, 
-    // isAdmin,
+     //authenticateUser, 
+     //isAdmin,
     getUsers
 )
 router.post(

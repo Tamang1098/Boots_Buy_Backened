@@ -9,9 +9,8 @@ const adminUserRoutes = require("./routes/admin/userRouteAdmin")
 const adminBrandRoutes = require("./routes/admin/brandRouteAdmin")
 const adminProductRoutes = require("./routes/admin/productRouteAdmin")
 
-
-
-
+const orderRoutes = require('./routes/order');
+const adminRoutes = require('./routes/admin/admin');
 
 
 const path = require("path") // 
@@ -35,6 +34,11 @@ app.use("/api/auth", userRoutes)
 app.use("/api/admin/users", adminUserRoutes)
 app.use("/api/admin/brand", adminBrandRoutes)
 app.use("/api/admin/product", adminProductRoutes)
+
+app.use('/api', orderRoutes);
+app.use('/api/admin', adminRoutes);
+
+
 
 
 module.exports=app
